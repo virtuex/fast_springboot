@@ -3,6 +3,8 @@ package zkt.service;
 
 import zkt.domain.City;
 
+import java.util.List;
+
 /**
  * 城市业务逻辑接口类
  *
@@ -16,4 +18,5 @@ public interface CityService {
      */
     City findCityByNameJpa(String cityName);
     City findCityByNameMybatis(String cityName);
+    List<City> findAllCities();
 }

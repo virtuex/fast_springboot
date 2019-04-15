@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-this is a test file!
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>城市名</th>
+        <th>描述</th>
+        <th>省</th>
+        <th>省ID</th>
+    </tr>
+    <tr  th:each="city,cityStat : ${cities}">
+        <td th:text="${city.id}">Onions</td>
+        <td th:text="${city.cityName}">test@test.com.cn</td>
+        <td th:text="${city.description}">yes</td>
+        <th th:text="${city.cityProvince}">状态变量：index</th>
+        <th th:text="${city.provinceId}">状态变量：count</th>
+    </tr>
+</table>
 </body>
 </html>

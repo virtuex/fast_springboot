@@ -8,6 +8,8 @@ import zkt.domain.City;
 import zkt.domain.CityExample;
 import zkt.service.CityService;
 
+import java.util.List;
+
 /**
  * 城市业务逻辑实现类
  *
@@ -43,5 +45,10 @@ public class CityServiceImpl implements CityService {
         CityExample example = new CityExample();
         example.or().andCityNameEqualTo(cityName);
         return cityMapper.selectByExample(example).get(0);
+    }
+
+    @Override
+    public List<City> findAllCities() {
+        return cityDao.findAll();
     }
 }

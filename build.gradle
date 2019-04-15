@@ -88,15 +88,4 @@ mybatisGenerator {
     verbose = true
     configFile = 'src/main/resources/generatorConfig.xml'
 }
-//mybatis generator plugin ------ end
-
-
-task "create-dirs" << {
-    sourceSets*.java.srcDirs*.each{
-        it.mkdirs()
-    }
-    sourceSets*.resources.srcDirs*.each{
-        it.mkdirs()
-    }
-}
 
