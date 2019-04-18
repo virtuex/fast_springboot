@@ -33,3 +33,15 @@ spring:
 mybatis:
   type-aliases-package: org.spring.springboot.domain
   mapper-locations: classpath:mapper/*.xml
+
+mail:
+  host: smtp.163.com
+  password:  xda265856
+  username: xda265856@163.com
+  port: 25
+  test-connection: true
+  protocol: smtp
+  default-encoding: UTF-8
+
+
+

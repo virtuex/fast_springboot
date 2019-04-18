@@ -15,5 +15,4 @@ public interface CityService {
      * @param cityName
      */
     City findCityByNameJpa(String cityName);
-    City findCityByNameMybatis(String cityName);
 }

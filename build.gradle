@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.2.RELEASE'
+        springBootVersion = '2.1.4.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -61,42 +61,9 @@ dependencies {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter'
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-jdbc'
     }
+    compile (group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '1.5.10.RELEASE'){
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
     testCompile group: 'junit', name: 'junit', version: '4.11'
 
 }
-
-
-//mybatis generator plugin ------ start
-buildscript {
-    repositories {
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath "gradle.plugin.com.arenagod.gradle:mybatis-generator-plugin:1.4"
-    }
-}
-
-apply plugin: "com.arenagod.gradle.MybatisGenerator"
-
-configurations {
-    mybatisGenerator
-}
-
-mybatisGenerator {
-    verbose = true
-    configFile = 'src/main/resources/generatorConfig.xml'
-}
-//mybatis generator plugin ------ end
-
-
-task "create-dirs" << {
-    sourceSets*.java.srcDirs*.each{
-        it.mkdirs()
-    }
-    sourceSets*.resources.srcDirs*.each{
-        it.mkdirs()
-    }
-}
-

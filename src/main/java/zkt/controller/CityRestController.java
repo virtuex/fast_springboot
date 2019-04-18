@@ -1,6 +1,7 @@
 package zkt.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,7 +12,7 @@ import zkt.service.CityService;
 /**
  * Created by bysocket on 07/02/2017.
  */
-@RestController
+@Controller
 public class CityRestController {
 
     @Autowired
@@ -28,9 +29,5 @@ public class CityRestController {
         return "test";
     }
 
-    @RequestMapping(value = "/api/mybatis/city", method = RequestMethod.GET)
-    public City findOneCityMybatis(@RequestParam(value = "cityName", required = true) String cityName) {
-        return cityService.findCityByNameMybatis(cityName);
-    }
 
 }

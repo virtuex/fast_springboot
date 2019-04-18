@@ -3,9 +3,7 @@ package zkt.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import zkt.dao.CityDao;
-import zkt.dao.mapper.CityMapper;
 import zkt.domain.City;
-import zkt.domain.CityExample;
 import zkt.service.CityService;
 
 /**
@@ -20,9 +18,6 @@ public class CityServiceImpl implements CityService {
     @Autowired
     private CityDao cityDao;
 
-    @Autowired
-    private CityMapper cityMapper;
-
     /**
      * 这个方法是使用Spring Data JPA实现的，比较简单
      * @param cityName
@@ -33,15 +28,4 @@ public class CityServiceImpl implements CityService {
         return cityDao.findCityByCityName(cityName);
     }
 
-    /**
-     * 这个方法是使用Mybatis的
-     * @param cityName
-     * @return
-     */
-    @Override
-    public City findCityByNameMybatis(String cityName) {
-        CityExample example = new CityExample();
-        example.or().andCityNameEqualTo(cityName);
-        return cityMapper.selectByExample(example).get(0);
-    }
 }
